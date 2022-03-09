@@ -1,5 +1,4 @@
-import logo from "./logo.svg";
-import "./styles/App.css";
+import "./styles/main.scss";
 
 //components
 import { Game } from "./components/Game";

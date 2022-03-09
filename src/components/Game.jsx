@@ -10,6 +10,11 @@ import {
 //components
 import { Board } from "../components/Board";
 
+//images
+import restartImg from "../assets/icon-restart.svg";
+import iconX from "../assets/icon-x.svg";
+import iconO from "../assets/icon-o.svg";
+
 function Game() {
   const [history, setHistory] = useLocalStorageState("tic-tac-toe:history", [
     Array(9).fill(null),
@@ -42,29 +47,37 @@ function Game() {
     setCurrentStep(0);
   }
 
-  const moves = history.map((stepSquares, step) => {
-    const desc = step ? `Go to move #${step}` : "Go to game start";
-    const isCurrentStep = step === currentStep;
-    return (
-      <li key={step}>
-        <button disabled={isCurrentStep} onClick={() => setCurrentStep(step)}>
-          {desc} {isCurrentStep ? "(current)" : null}
-        </button>
-      </li>
-    );
-  });
+  // const moves = history.map((stepSquares, step) => {
+  //   const desc = step ? `Go to move #${step}` : "Go to game start";
+  //   const isCurrentStep = step === currentStep;
+  //   return (
+  //     <li key={step}>
+  //       <button disabled={isCurrentStep} onClick={() => setCurrentStep(step)}>
+  //         {desc} {isCurrentStep ? "(current)" : null}
+  //       </button>
+  //     </li>
+  //   );
+  // });
 
   return (
     <div className="game">
       <div className="game-board">
-        <Board onClick={selectSquare} squares={currentSquares} />
-        <button className="restart" onClick={restart}>
-          restart
-        </button>
-      </div>
-      <div className="game-info">
-        <div>{status}</div>
-        <ol>{moves}</ol>
+        <div className="game-info">
+          <div className="icons">
+            <img src={iconX} alt="" className="icon" />
+            <img src={iconO} alt="" className="icon" />
+          </div>
+          <div className="status">{status}</div>
+          <button className="restart" onClick={restart}>
+            <img src={restartImg} alt="restart button" />
+          </button>
+        </div>
+        <Board
+          onClick={selectSquare}
+          squares={currentSquares}
+          next={nextValue}
+        />
+        <div className="results"></div>
       </div>
     </div>
   );

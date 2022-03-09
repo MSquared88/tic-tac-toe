@@ -3,7 +3,7 @@ function calculateStatus(winner, squares, nextValue) {
     ? `Winner: ${winner}`
     : squares.every(Boolean)
     ? `Scratch: Cat's game`
-    : `Next player: ${nextValue}`;
+    : `${nextValue} TURN`;
 }
 
 function calculateNextValue(squares) {
