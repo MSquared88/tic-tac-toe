@@ -1,0 +1,16 @@
+.square {
+  @include button-base;
+  min-width: 96px;
+  min-height: 96px;
+  max-width: 140px;
+  max-height: 140px;
+  background: $semi-dark-navy;
+  box-shadow: 0px 4px 4px #0f0f0f;
+}
+
+.restart {
+  @include button-base;
+  height: 52px;
+  width: 52px;
+  background: $silver;
+}
