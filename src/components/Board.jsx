@@ -1,14 +1,12 @@
 import React from "react";
 
 import iconX from "../assets/icon-x.svg";
-import xOutline from "../assets/icon-x-outline.svg";
 
 import iconO from "../assets/icon-o.svg";
-import oOutline from "../assets/icon-o-outline.svg";
 
 export function Board({ squares, onClick, next }) {
   function renderSquare(i) {
-    const hoverIconUrl = next === "X" ? xOutline : oOutline;
+    const hoverIconClass = next === "X" ? "x-class" : "o-class";
 
     const isIcon =
       squares[i] === "X" ? (
@@ -17,7 +15,10 @@ export function Board({ squares, onClick, next }) {
         <img src={iconO} alt="O" />
       );
     return (
-      <button className="square" onClick={() => onClick(i)}>
+      <button
+        className={`square ${!squares[i] && hoverIconClass}`}
+        onClick={() => onClick(i)}
+      >
         {squares[i] && isIcon}
       </button>
     );
