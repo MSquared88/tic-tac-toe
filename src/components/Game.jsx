@@ -9,9 +9,9 @@ import {
 
 //components
 import { Board } from "../components/Board";
+import RestartModal from "./RestartModal";
 
 //images
-import restartImg from "../assets/icon-restart.svg";
 import iconX from "../assets/icon-x.svg";
 import iconO from "../assets/icon-o.svg";
 
@@ -68,9 +68,7 @@ function Game() {
             <img src={iconO} alt="" className="icon" />
           </div>
           <div className="status">{status}</div>
-          <button className="restart" onClick={restart}>
-            <img src={restartImg} alt="restart button" />
-          </button>
+          <RestartModal restart={restart} />
         </div>
         <Board
           onClick={selectSquare}
