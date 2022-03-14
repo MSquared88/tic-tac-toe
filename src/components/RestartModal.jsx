@@ -9,7 +9,7 @@ export default function BasicModal({ restart }) {
   const handleClose = () => setOpen(false);
 
   return (
-    <div>
+    <>
       <button className="restart-modal-btn" onClick={handleOpen}>
         <img src={restartImg} alt="restart button" />
       </button>
@@ -19,17 +19,29 @@ export default function BasicModal({ restart }) {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <div className="restart-modal">
-          <button
-            onClick={() => {
-              restart();
-              handleClose();
-            }}
-          >
-            restart
-          </button>
+        <div className="modal-container">
+          <div className="modal-content">
+            <h1 className="modal-title">RESTART GAME?</h1>
+            <div className="modal-button-container">
+              <button
+                className="modal-btn modal-btn-cancel"
+                onClick={handleClose}
+              >
+                NO, CANCEL
+              </button>
+              <button
+                className="modal-btn modal-btc-accept-yellow"
+                onClick={() => {
+                  restart();
+                  handleClose();
+                }}
+              >
+                YES, RESTART
+              </button>
+            </div>
+          </div>
         </div>
       </Modal>
-    </div>
+    </>
   );
 }

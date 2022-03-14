@@ -41,14 +41,38 @@
   }
 }
 
-.restart-modal {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  height: 350px;
-  width: 100%;
+.square {
+  @include button-base;
+  min-width: 96px;
+  min-height: 96px;
+  max-width: 140px;
+  max-height: 140px;
   background: $semi-dark-navy;
-  box-shadow: 24;
-  padding: 4;
+  box-shadow: 0px 4px 4px #0f0f0f;
+}
+
+.x-class {
+  &:hover {
+    background-image: url("../../assets/icon-x-outline.svg");
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+  &:focus {
+    background-image: url("../../assets/icon-x-outline.svg");
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+}
+
+.o-class {
+  &:hover {
+    background-image: url("../../assets/icon-o-outline.svg");
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+  &:focus {
+    background-image: url("../../assets/icon-o-outline.svg");
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
 }
