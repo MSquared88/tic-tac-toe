@@ -1,7 +1,7 @@
 @mixin button-base {
   cursor: pointer;
   outline: none;
-  border-radius: 15px;
+  border-radius: 10px;
   text-decoration: none;
   border: none;
   &:active {
