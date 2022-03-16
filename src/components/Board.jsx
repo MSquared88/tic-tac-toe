@@ -10,9 +10,9 @@ export function Board({ squares, onClick, next }) {
 
     const isIcon =
       squares[i] === "X" ? (
-        <img src={iconX} alt="X" />
+        <img src={iconX} alt="X" style={{ height: "77%" }} />
       ) : (
-        <img src={iconO} alt="O" />
+        <img src={iconO} alt="O" style={{ height: "77%" }} />
       );
     return (
       <button
@@ -25,7 +25,7 @@ export function Board({ squares, onClick, next }) {
   }
 
   return (
-    <div>
+    <>
       <div className="board-row">
         {renderSquare(0)}
         {renderSquare(1)}
@@ -41,6 +41,6 @@ export function Board({ squares, onClick, next }) {
         {renderSquare(7)}
         {renderSquare(8)}
       </div>
-    </div>
+    </>
   );
 }

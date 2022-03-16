@@ -24,6 +24,13 @@ function Game() {
     0
   );
 
+  const [scoreboard, setScoreboard] = useLocalStorageState(
+    "score-board",
+    Array(3).fill(0)
+  );
+
+  const [xScore, tieScore, oScore] = scoreboard;
+
   const currentSquares = history[currentStep];
   const winner = calculateWinner(currentSquares);
   const nextValue = calculateNextValue(currentSquares);
@@ -60,22 +67,20 @@ function Game() {
   // });
 
   return (
-    <div className="game">
-      <div className="game-board">
-        <div className="game-info">
-          <div className="icons">
-            <img src={iconX} alt="" className="icon" />
-            <img src={iconO} alt="" className="icon" />
-          </div>
-          <div className="status">{status}</div>
-          <RestartModal restart={restart} />
+    <div className="game-board">
+      <div className="game-info">
+        <div className="icons">
+          <img src={iconX} alt="" className="icon" />
+          <img src={iconO} alt="" className="icon" />
         </div>
-        <Board
-          onClick={selectSquare}
-          squares={currentSquares}
-          next={nextValue}
-        />
-        <div className="results"></div>
+        <div className="status">{status}</div>
+        <RestartModal restart={restart} />
+      </div>
+      <Board onClick={selectSquare} squares={currentSquares} next={nextValue} />
+      <div className="results">
+        <div className="result">{xScore}</div>
+        <div className="result">{tieScore}</div>
+        <div className="result">{oScore}</div>
       </div>
     </div>
   );
