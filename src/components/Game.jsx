@@ -15,6 +15,12 @@ import RestartModal from "./RestartModal";
 import iconX from "../assets/icon-x.svg";
 import iconO from "../assets/icon-o.svg";
 
+const initialScoreboard = {
+  X: 0,
+  TIES: 0,
+  O: 0,
+};
+
 function Game() {
   const [history, setHistory] = useLocalStorageState("tic-tac-toe:history", [
     Array(9).fill(null),
@@ -26,10 +32,8 @@ function Game() {
 
   const [scoreboard, setScoreboard] = useLocalStorageState(
     "score-board",
-    Array(3).fill(0)
+    initialScoreboard
   );
-
-  const [xScore, tieScore, oScore] = scoreboard;
 
   const currentSquares = history[currentStep];
   const winner = calculateWinner(currentSquares);
@@ -37,6 +41,7 @@ function Game() {
   const status = calculateStatus(winner, currentSquares, nextValue);
 
   function selectSquare(square) {
+    console.log(status);
     if (winner || currentSquares[square]) {
       return;
     }
@@ -78,9 +83,12 @@ function Game() {
       </div>
       <Board onClick={selectSquare} squares={currentSquares} next={nextValue} />
       <div className="results">
-        <div className="result">{xScore}</div>
-        <div className="result">{tieScore}</div>
-        <div className="result">{oScore}</div>
+        {Object.keys(scoreboard).map((key) => (
+          <div className="result">
+            <p>{key}</p>
+            <p style={{ fontWeight: "700" }}>{scoreboard[key]}</p>
+          </div>
+        ))}
       </div>
     </div>
   );
