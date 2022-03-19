@@ -180,13 +180,25 @@ body {
   justify-content: space-between;
   width: 100%;
 }
+.results div:nth-child(1) {
+  background: #65e9e4;
+}
+.results div:nth-child(3) {
+  background: #f2b137;
+}
 .results .result {
+  height: 20vw;
+  width: 20vw;
+  min-width: 96px;
+  min-height: 64px;
+  max-width: 140px;
+  max-height: 72px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 96px;
-  height: 64px;
   background: #dbe8ed;
+  border-radius: 10px;
 }
 
 .modal-container {

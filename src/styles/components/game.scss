@@ -95,12 +95,24 @@
   justify-content: space-between;
   width: 100%;
 
+  div:nth-child(1) {
+    background: $light-blue;
+  }
+  div:nth-child(3) {
+    background: $light-yellow;
+  }
   .result {
+    height: 20vw;
+    width: 20vw;
+    min-width: 96px;
+    min-height: 64px;
+    max-width: 140px;
+    max-height: 72px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 96px;
-    height: 64px;
     background: $silver;
+    border-radius: 10px;
   }
 }
