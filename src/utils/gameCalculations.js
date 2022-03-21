@@ -1,9 +1,7 @@
-function calculateStatus(winner, squares, nextValue) {
-  return winner
-    ? `Winner: ${winner}`
-    : squares.every(Boolean)
-    ? `Scratch: Cat's game`
-    : `${nextValue} TURN`;
+function calculateStatus(winner, squares) {
+  if (winner) return winner;
+  if (squares.every(Boolean)) return "TIE";
+  return null;
 }
 
 function calculateNextValue(squares) {

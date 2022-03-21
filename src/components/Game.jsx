@@ -1,3 +1,7 @@
+import { ResultModal } from "./ResultModal";
+import { Results } from "./Results";
+import { GameInfo } from "./GameInfo";
+import * as React from "react";
 import { useLocalStorageState } from "../utils/useLocalStorageState";
 
 //game calculations
@@ -9,11 +13,6 @@ import {
 
 //components
 import { Board } from "../components/Board";
-import RestartModal from "./RestartModal";
-
-//images
-import iconX from "../assets/icon-x.svg";
-import iconO from "../assets/icon-o.svg";
 
 const initialScoreboard = {
   X: 0,
@@ -35,13 +34,39 @@ function Game() {
     initialScoreboard
   );
 
+  function handleScore(result) {
+    switch (result) {
+      case "X":
+        setScoreboard({ ...scoreboard, X: scoreboard["X"] + 1 });
+        break;
+      case "O":
+        setScoreboard({ ...scoreboard, O: scoreboard["O"] + 1 });
+        break;
+      case "TIE":
+        setScoreboard({ ...scoreboard, TIES: scoreboard["TIES"] + 1 });
+        break;
+      default:
+        break;
+    }
+  }
+
   const currentSquares = history[currentStep];
   const winner = calculateWinner(currentSquares);
   const nextValue = calculateNextValue(currentSquares);
-  const status = calculateStatus(winner, currentSquares, nextValue);
+  const status = calculateStatus(winner, currentSquares);
+
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
+  React.useEffect(() => {
+    if (status) {
+      handleOpen();
+      handleScore(status);
+    }
+  }, [status]);
 
   function selectSquare(square) {
-    console.log(status);
     if (winner || currentSquares[square]) {
       return;
     }
@@ -57,39 +82,15 @@ function Game() {
   function restart() {
     setHistory([Array(9).fill(null)]);
     setCurrentStep(0);
+    setScoreboard(initialScoreboard);
   }
-
-  // const moves = history.map((stepSquares, step) => {
-  //   const desc = step ? `Go to move #${step}` : "Go to game start";
-  //   const isCurrentStep = step === currentStep;
-  //   return (
-  //     <li key={step}>
-  //       <button disabled={isCurrentStep} onClick={() => setCurrentStep(step)}>
-  //         {desc} {isCurrentStep ? "(current)" : null}
-  //       </button>
-  //     </li>
-  //   );
-  // });
 
   return (
     <div className="game-board">
-      <div className="game-info">
-        <div className="icons">
-          <img src={iconX} alt="" className="icon" />
-          <img src={iconO} alt="" className="icon" />
-        </div>
-        <div className="status">{status}</div>
-        <RestartModal restart={restart} />
-      </div>
+      <ResultModal open={open} handleClose={handleClose} result={status} />
+      <GameInfo nextValue={nextValue} restart={restart} />
       <Board onClick={selectSquare} squares={currentSquares} next={nextValue} />
-      <div className="results">
-        {Object.keys(scoreboard).map((key) => (
-          <div className="result">
-            <p>{key}</p>
-            <p style={{ fontWeight: "700" }}>{scoreboard[key]}</p>
-          </div>
-        ))}
-      </div>
+      <Results scoreboard={scoreboard} />
     </div>
   );
 }

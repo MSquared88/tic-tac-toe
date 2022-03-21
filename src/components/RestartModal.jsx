@@ -30,7 +30,7 @@ export default function BasicModal({ restart }) {
                 NO, CANCEL
               </button>
               <button
-                className="modal-btn modal-btc-accept-yellow"
+                className="modal-btn modal-btn-yellow"
                 onClick={() => {
                   restart();
                   handleClose();
