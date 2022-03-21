@@ -276,8 +276,12 @@ body {
   background-color: #dbe8ed;
 }
 
-.modal-btc-accept-yellow {
+.modal-btn-yellow {
   background-color: #f2b137;
+}
+
+.modal-btn-blue {
+  background-color: #65e9e4;
 }
 
 /*# sourceMappingURL=index.css.map */
