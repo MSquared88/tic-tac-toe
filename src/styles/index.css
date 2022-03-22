@@ -284,4 +284,22 @@ body {
   background-color: #65e9e4;
 }
 
+.modal-result-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.modal-result-title img {
+  margin-right: 1rem;
+}
+
+.text-light-blue {
+  color: #65e9e4;
+}
+
+.text-light-yellow {
+  color: #f2b137;
+}
+
 /*# sourceMappingURL=index.css.map */

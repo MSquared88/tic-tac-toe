@@ -16,8 +16,8 @@ export function ResultModal({ open, handleClose, result }) {
         >
           <div className="modal-container">
             <div className="modal-content">
-              <p>PLAYER 1 WINS!</p>
-              <h1 className="modal-title ">
+              <p className="modal-title">PLAYER 1 WINS!</p>
+              <h1 className="modal-result-title text-light-blue">
                 <img src={iconX} alt="X Icon" className="icon" />
                 TAKES THE ROUND
               </h1>
@@ -48,8 +48,8 @@ export function ResultModal({ open, handleClose, result }) {
         >
           <div className="modal-container">
             <div className="modal-content">
-              <p>PLAYER 2 WINS!</p>
-              <h1 className="modal-title">
+              <p className="modal-title">PLAYER 2 WINS!</p>
+              <h1 className="modal-result-title text-light-yellow">
                 <img src={iconO} alt="O Icon" className="icon" />
                 TAKES THE ROUND
               </h1>
@@ -61,7 +61,7 @@ export function ResultModal({ open, handleClose, result }) {
                   QUIT
                 </button>
                 <button
-                  className="modal-btn modal-btn-accept-yellow"
+                  className="modal-btn modal-btn-yellow"
                   onClick={handleClose}
                 >
                   NEXT ROUND
@@ -81,7 +81,7 @@ export function ResultModal({ open, handleClose, result }) {
         >
           <div className="modal-container">
             <div className="modal-content">
-              <p>tie</p>
+              <p className="modal-title">TIE</p>
 
               <button onClick={handleClose}>QUIT</button>
               <button onClick={handleClose}>NEXT ROUND</button>
