@@ -82,13 +82,23 @@ function Game() {
   function restart() {
     setHistory([Array(9).fill(null)]);
     setCurrentStep(0);
+  }
+
+  function resetGame() {
+    restart();
     setScoreboard(initialScoreboard);
   }
 
   return (
     <div className="game-board">
-      <ResultModal open={open} handleClose={handleClose} result={status} />
-      <GameInfo nextValue={nextValue} restart={restart} />
+      <ResultModal
+        open={open}
+        handleClose={handleClose}
+        result={status}
+        restart={restart}
+        resetGame={resetGame}
+      />
+      <GameInfo nextValue={nextValue} resetGame={resetGame} />
       <Board onClick={selectSquare} squares={currentSquares} next={nextValue} />
       <Results scoreboard={scoreboard} />
     </div>

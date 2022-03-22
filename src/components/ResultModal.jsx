@@ -5,7 +5,7 @@ import Modal from "@mui/material/Modal";
 import iconX from "../assets/icon-x.svg";
 import iconO from "../assets/icon-o.svg";
 
-export function ResultModal({ open, handleClose, result }) {
+export function ResultModal({ open, handleClose, result, restart, resetGame }) {
   switch (result) {
     case "X":
       return (
@@ -24,13 +24,19 @@ export function ResultModal({ open, handleClose, result }) {
               <div className="modal-button-container">
                 <button
                   className="modal-btn modal-btn-cancel"
-                  onClick={handleClose}
+                  onClick={() => {
+                    handleClose();
+                    resetGame();
+                  }}
                 >
                   QUIT
                 </button>
                 <button
                   className="modal-btn modal-btn-blue"
-                  onClick={handleClose}
+                  onClick={() => {
+                    handleClose();
+                    restart();
+                  }}
                 >
                   NEXT ROUND
                 </button>
@@ -56,13 +62,19 @@ export function ResultModal({ open, handleClose, result }) {
               <div className="modal-button-container">
                 <button
                   className="modal-btn modal-btn-cancel"
-                  onClick={handleClose}
+                  onClick={() => {
+                    handleClose();
+                    resetGame();
+                  }}
                 >
                   QUIT
                 </button>
                 <button
-                  className="modal-btn modal-btn-yellow"
-                  onClick={handleClose}
+                  className="modal-btn text-light-blue"
+                  onClick={() => {
+                    handleClose();
+                    restart();
+                  }}
                 >
                   NEXT ROUND
                 </button>
@@ -81,10 +93,28 @@ export function ResultModal({ open, handleClose, result }) {
         >
           <div className="modal-container">
             <div className="modal-content">
-              <p className="modal-title">TIE</p>
+              <h1 className="modal-title">ROUND TIED</h1>
 
-              <button onClick={handleClose}>QUIT</button>
-              <button onClick={handleClose}>NEXT ROUND</button>
+              <div className="modal-button-container">
+                <button
+                  className="modal-btn modal-btn-cancel"
+                  onClick={() => {
+                    handleClose();
+                    resetGame();
+                  }}
+                >
+                  QUIT
+                </button>
+                <button
+                  className="modal-btn modal-btn-yellow"
+                  onClick={() => {
+                    handleClose();
+                    restart();
+                  }}
+                >
+                  NEXT ROUND
+                </button>
+              </div>
             </div>
           </div>
         </Modal>

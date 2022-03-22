@@ -5,7 +5,7 @@ import RestartModal from "./RestartModal";
 import iconX from "../assets/icon-x.svg";
 import iconO from "../assets/icon-o.svg";
 
-export function GameInfo({ nextValue, restart }) {
+export function GameInfo({ nextValue, resetGame }) {
   return (
     <div className="game-info">
       <div className="icons">
@@ -13,7 +13,7 @@ export function GameInfo({ nextValue, restart }) {
         <img src={iconO} alt="O Icon" className="icon" />
       </div>
       <div className="status">{`${nextValue} TURN`}</div>
-      <RestartModal restart={restart} />
+      <RestartModal resetGame={resetGame} />
     </div>
   );
 }
