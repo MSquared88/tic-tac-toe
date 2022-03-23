@@ -3,7 +3,7 @@ import Modal from "@mui/material/Modal";
 
 import restartImg from "../assets/icon-restart.svg";
 
-export default function BasicModal({ restart }) {
+export default function BasicModal({ resetGame }) {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -32,7 +32,7 @@ export default function BasicModal({ restart }) {
               <button
                 className="modal-btn modal-btn-yellow"
                 onClick={() => {
-                  restart();
+                  resetGame();
                   handleClose();
                 }}
               >
