@@ -70,7 +70,7 @@ export function ResultModal({ open, handleClose, result, restart, resetGame }) {
                   QUIT
                 </button>
                 <button
-                  className="modal-btn text-light-blue"
+                  className="modal-btn modal-btn-yellow"
                   onClick={() => {
                     handleClose();
                     restart();
