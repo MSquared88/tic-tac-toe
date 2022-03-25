@@ -1,12 +1,5 @@
 .game-board {
-  height: 84vw;
-  width: 63%;
-
-  min-width: 328px;
-  min-height: 515px;
-
-  max-width: 460px;
-  max-height: 623px;
+  width: clamp(328px, 63%, 460px);
 
   display: flex;
   flex-direction: column;
@@ -50,12 +43,9 @@
 
 .square {
   @include button-base;
-  height: 20vw;
-  width: 20vw;
-  min-width: 96px;
-  min-height: 96px;
-  max-width: 146px;
-  max-height: 146px;
+
+  height: clamp(96px, 20vw, 146px);
+  width: clamp(96px, 20vw, 146px);
   background: $semi-dark-navy;
   box-shadow: 0px 4px 4px #0f0f0f;
 }
@@ -102,12 +92,8 @@
     background: $light-yellow;
   }
   .result {
-    height: 20vw;
-    width: 20vw;
-    min-width: 96px;
-    min-height: 64px;
-    max-width: 140px;
-    max-height: 72px;
+    height: clamp(64px, 20vw, 72px);
+    width: clamp(96px, 20vw, 140px);
     display: flex;
     flex-direction: column;
     justify-content: center;

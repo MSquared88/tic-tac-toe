@@ -62,7 +62,6 @@ function Game() {
   React.useEffect(() => {
     if (status) {
       handleOpen();
-      handleScore(status);
     }
   }, [status]);
 
@@ -81,6 +80,7 @@ function Game() {
 
   function restart() {
     setHistory([Array(9).fill(null)]);
+    handleScore(status);
     setCurrentStep(0);
   }
 
