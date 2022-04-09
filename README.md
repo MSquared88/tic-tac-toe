@@ -22,6 +22,7 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ### `npm run sass`
 
+Starts listener for any changes to the sass files.
 You must have sass globally installed for this to work.
 
 ### The challenge
@@ -40,8 +41,7 @@ View the optimal layout for the game depending on their device's screen size
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Live Site URL: [Add live site URL here](https://tic-tac-toe-liard-phi.vercel.app/)
 
 ### Built with
 
@@ -50,14 +50,6 @@ View the optimal layout for the game depending on their device's screen size
 - Flexbox
 - Mobile-first workflow
 - [React](https://reactjs.org/) - JS library
-
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
-
-### What I learned
-
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
-
-To see how you can add code snippets, see below:
 
 ```css
 /* went from this */
